@@ -4,10 +4,24 @@ from termcolor import colored
 from threading import Thread
 import emoji
 
-print(colored("Bienvenidos al chat " + emoji.emojize(':thumbs_up:'),"red"))
-nombre = input("Hola dime tu nombre: ")
-nombre = nombre.capitalize()
+def ante_conexion_exitosa(client, userdata, flag, rc):
+    print("Conectado con el broker" + emoji.emojize(':grinning_face:'))
 
+print(colored("Bienvenidos al cliente de mosquitto" + emoji.emojize(':thumbs_up:'),"red"))
+nombre = input("Primero, escribe tu nombre: ")
+
+if (nombre.isspace() or len(nombre) <= 1):
+    #en el caso de que no ingrese nombre, lo que hacemos es terminar el script
+    print('debes ingrear un nombre')
+else:
+    #pedimos los datos para ingresar al servidor
+    print(colored("ok, " + nombre.capitalize() + " te vamos a pedir unos datos adicionales","green"))
+    servidor = input('Ingresa el nombre/IP del servidor MQTT: ')
+    usuario = input('Ingresa el usuario: ')
+    clave = input('Ingresa la clave: ')
+
+
+'''
 def ante_conexion_exitosa(client, userdata, flag, rc):
     print("Conectados con el broker" + emoji.emojize(':grinning_face:')) 
     client.subscribe("/chat/mensajes") #indicamos al tópico que me quiero conectar
@@ -30,6 +44,6 @@ while True:
     cliente.loop()
 
 
-
+'''
 
 

@@ -4,7 +4,6 @@ from termcolor import colored
 from threading import Thread
 import emoji
 
-print(colored("Bienvenidos al chat","red"))
-print(emoji.emojize(':thumbs_up:'))
+print(colored("Bienvenidos al chat " + emoji.emojize(':thumbs_up:'),"red"))
 nombre = input("Hola dime tu nombre: ")
 
